@@ -27,6 +27,9 @@ module.exports = (function () {
             get isRight() {
                 return false;
             },
+            get isLeft() {
+                return true;
+            },
             map() {
                 return left;
             },
@@ -62,6 +65,9 @@ module.exports = (function () {
             },
             get isRight() {
                 return true;
+            },
+            get isLeft() {
+                return false;
             },
             map(f) {
                 return Either.of(f(_val));

@@ -19,14 +19,14 @@ class Either {
 }
 
 class Left {
-    constructor(value) {
-        this._val = value;
-    }
     get value() {
         return this._val;//throw new TypeError("Cannot get value of Either.Left(a).");
     }
     get isRight() {
         return false;
+    }
+    get isLeft() {
+        return true;
     }
     map(f) {
         return this;
@@ -52,15 +52,14 @@ class Left {
 }
 
 class Right {
-    constructor(value) {
-        this._val = value;
-    }
-
     get value() {
         return this._val;
     }
     get isRight() {
         return true;
+    }
+    get isLeft() {
+        return false;
     }
     map(f) {
         return Either.of(f(this._val));
